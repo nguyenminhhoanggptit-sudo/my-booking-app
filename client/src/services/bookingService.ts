@@ -1,27 +1,23 @@
 import axios from 'axios';
 import type { MonTrongGio } from '../types/booking.types';
 
-const DIA_CHI_API = 'http://localhost:5000/api/bookings';
+const API_URL = 'http://localhost:5000/api/bookings';
 
-export const dichVuDatSan = {
-  // Gọi API lấy danh sách giờ đã đặt của sân trong ngày
-  layGioDaDat: async (maSan: string, ngayDat: string) => {
-    const phanHoi = await axios.get(`${DIA_CHI_API}/gio-da-dat`, {
-      params: { maSan, ngayDat },
-    });
-    return phanHoi.data as { gioBatDau: string; gioKetThuc: string }[];
-  },
+// Lấy danh sách khung giờ đã đặt của một sân theo ngày
+export const layGioDaDat = async (maSan: string, ngayDat: string) => {
+  const phanHoi = await axios.get(`${API_URL}/gio-da-dat`, {
+    params: { maSan, ngayDat },
+  });
+  return phanHoi.data;
+};
 
-  // Gọi API gửi giỏ hàng lên server để lưu
-  guiDonDatSan: async (danhSachGio: MonTrongGio[]) => {
-    const token = localStorage.getItem('token');
-    const phanHoi = await axios.post(
-      DIA_CHI_API,
-      { danhSachGio },
-      {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      }
-    );
-    return phanHoi.data;
-  },
+// Gửi toàn bộ giỏ hàng lên Backend để chốt đơn đặt sân
+export const guiDonDatSan = async (danhSachGio: MonTrongGio[]) => {
+  const token = localStorage.getItem('token');
+  const cauHinh = token
+    ? { headers: { Authorization: `Bearer ${token}` } }
+    : {};
+
+  const phanHoi = await axios.post(API_URL, { danhSachGio }, cauHinh);
+  return phanHoi.data;
 };

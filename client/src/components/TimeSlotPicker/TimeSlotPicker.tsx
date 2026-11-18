@@ -2,43 +2,44 @@ import React from 'react';
 import type { KhungGio } from '../../types/booking.types';
 import './TimeSlotPicker.css';
 
-interface ThuocTinhChonGio {
-  danhSachGio: KhungGio[];
+interface TimeSlotPickerProps {
+  danhSachKhungGio: KhungGio[];
   gioDaDat: string[];
   maGioDangChon: string[];
-  maSan: string;
-  ngayDat: string;
-  khiBamChonGio: (gio: KhungGio) => void;
+  khiBamChonGio: (khungGio: KhungGio) => void;
 }
 
-export const TimeSlotPicker: React.FC<ThuocTinhChonGio> = ({
-  danhSachGio,
+const TimeSlotPicker: React.FC<TimeSlotPickerProps> = ({
+  danhSachKhungGio,
   gioDaDat,
   maGioDangChon,
-  maSan,
-  ngayDat,
   khiBamChonGio,
 }) => {
   return (
-    <div className="luoi-khung-gio">
-      {danhSachGio.map((gio) => {
-        const biDatRoi = gioDaDat.includes(gio.gioBatDau);
-        const maDinhDanh = `${maSan}_${ngayDat}_${gio.gioBatDau}`;
-        const dangChon = maGioDangChon.includes(maDinhDanh);
+    <div className="time-slot-grid">
+      {danhSachKhungGio.map((khungGio) => {
+        const daBiDat = gioDaDat.includes(khungGio.gioBatDau);
+        const dangChon = maGioDangChon.includes(khungGio.gioBatDau);
+
+        let tenLop = 'slot-btn';
+        if (daBiDat) tenLop += ' slot-booked';
+        else if (dangChon) tenLop += ' slot-selected';
 
         return (
           <button
-            key={gio.id}
+            key={khungGio.id}
             type="button"
-            disabled={biDatRoi}
-            onClick={() => khiBamChonGio(gio)}
-            className={`nut-khung-gio ${biDatRoi ? 'da-dat' : ''} ${dangChon ? 'dang-chon' : ''}`}
+            className={tenLop}
+            disabled={daBiDat}
+            onClick={() => khiBamChonGio(khungGio)}
           >
-            <span className="chu-gio">
-              {gio.gioBatDau} - {gio.gioKetThuc}
+            <span className="slot-time">
+              {khungGio.gioBatDau} - {khungGio.gioKetThuc}
             </span>
-            <span className="chu-gia">
-              {biDatRoi ? 'Đã có người đặt' : `${gio.giaTien.toLocaleString('vi-VN')} đ`}
+            <span className="slot-price">
+              {daBiDat
+                ? 'Đã đặt'
+                : `${khungGio.giaTien.toLocaleString('vi-VN')} đ`}
             </span>
           </button>
         );
@@ -46,3 +47,5 @@ export const TimeSlotPicker: React.FC<ThuocTinhChonGio> = ({
     </div>
   );
 };
+
+export default TimeSlotPicker;
