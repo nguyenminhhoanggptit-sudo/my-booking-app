@@ -21,7 +21,7 @@ export const SearchFilterBar: React.FC<ThuocTinhThanhLoc> = ({ boLoc, khiLoc }) 
         <label>Tìm theo tên sân:</label>
         <input
           type="text"
-          placeholder="Ví dụ: Cầu Lông..."
+          placeholder="Ví dụ: Bóng Đá Mini..."
           value={dangNhap.tuKhoa}
           onChange={(e) => setDangNhap({ ...dangNhap, tuKhoa: e.target.value })}
           onKeyDown={(e) => e.key === 'Enter' && khiLoc(dangNhap)}
