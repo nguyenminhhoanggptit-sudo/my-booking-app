@@ -1,0 +1,53 @@
+.luoi-khung-gio {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.nut-khung-gio {
+  padding: 12px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.nut-khung-gio:hover:not(:disabled) {
+  border-color: #0f172a;
+  background-color: #f8fafc;
+}
+
+.nut-khung-gio.dang-chon {
+  border-color: #0f172a;
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.nut-khung-gio.da-dat {
+  background-color: #f8fafc;
+  border-color: #f1f5f9;
+  color: #cbd5e1;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.chu-gio {
+  font-weight: 600;
+  font-size: 14px;
+  display: block;
+}
+
+.chu-gia {
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  color: #64748b;
+}
+
+.nut-khung-gio.dang-chon .chu-gia {
+  color: #cbd5e1;
+}

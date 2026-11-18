@@ -1,0 +1,71 @@
+.thanh-loc {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.o-loc {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 160px;
+}
+
+.o-loc-rong {
+    flex: 1;
+    min-width: 220px;
+}
+
+.o-loc label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.o-loc select,
+.o-loc input {
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #0f172a;
+    font-size: 14px;
+    outline: none;
+}
+
+.o-loc select:focus,
+.o-loc input:focus {
+    border-color: #0f172a;
+}
+
+.nut-loc {
+    padding: 9px 20px;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nut-loc:hover {
+    background-color: #1e293b;
+}
+
+.nut-xoa-loc {
+    padding: 9px 16px;
+    background: transparent;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nut-xoa-loc:hover {
+    color: #0f172a;
+    border-color: #0f172a;
+}
