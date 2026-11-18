@@ -1,0 +1,133 @@
+.trang-dat-san {
+  max-width: 1040px;
+  margin: 32px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  .trang-dat-san {
+    grid-template-columns: 1fr;
+  }
+}
+
+.khung-noi-dung {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.khung-noi-dung h2,
+.khung-noi-dung h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.hang-bo-loc {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.nhom-nhap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nhom-nhap label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.nhom-nhap select,
+.nhom-nhap input {
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+  outline: none;
+}
+
+.nhom-nhap select:focus,
+.nhom-nhap input:focus {
+  border-color: #0f172a;
+}
+
+.dong-gio-hang {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.nut-xoa {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nut-xoa:hover {
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+.nut-xac-nhan {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nut-xac-nhan:hover:not(:disabled) {
+  background-color: #1e293b;
+}
+
+.nut-xac-nhan:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.hop-thong-bao {
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.thanh-cong {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.that-bai {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
