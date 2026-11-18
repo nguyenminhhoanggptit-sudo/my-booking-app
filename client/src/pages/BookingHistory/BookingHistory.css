@@ -1,0 +1,88 @@
+.trang-lich-su {
+    max-width: 1040px;
+    margin: 32px auto;
+    padding: 0 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #0f172a;
+}
+
+.khung-lich-su {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.khung-lich-su h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.chu-phu {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.hop-loi-ls {
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.boc-bang {
+    overflow-x: auto;
+}
+
+.bang-lich-su {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.bang-lich-su th {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.bang-lich-su td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.o-gia-tien {
+    color: #16a34a;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.huy-hieu {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.huy-hieu-xac-nhan {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.huy-hieu-huy {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
