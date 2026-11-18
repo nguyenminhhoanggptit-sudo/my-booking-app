@@ -1,0 +1,40 @@
+.thanh-phan-trang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.nut-trang {
+    min-width: 36px;
+    padding: 7px 12px;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.nut-trang:hover:not(:disabled):not(.trang-dang-chon) {
+    border-color: #0f172a;
+}
+
+.nut-trang:disabled {
+    color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.trang-dang-chon {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    font-weight: 600;
+}
+
+.dau-cham {
+    padding: 0 4px;
+    color: #94a3b8;
+}
