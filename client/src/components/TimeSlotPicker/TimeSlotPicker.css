@@ -1,53 +1,76 @@
-.luoi-khung-gio {
+.time-slot-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-  gap: 10px;
-  margin-top: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
 }
 
-.nut-khung-gio {
-  padding: 12px 10px;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+.slot-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
   background-color: #ffffff;
-  color: #1e293b;
+  border: 1.5px solid #bae6fd;
+  border-radius: 10px;
   cursor: pointer;
-  text-align: center;
-  transition: border-color 0.15s, background-color 0.15s;
+  transition: all 0.2s ease;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.04);
 }
 
-.nut-khung-gio:hover:not(:disabled) {
-  border-color: #0f172a;
-  background-color: #f8fafc;
+.slot-btn:hover:not(:disabled) {
+  border-color: #0284c7;
+  background-color: #f0f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(2, 132, 199, 0.14);
 }
 
-.nut-khung-gio.dang-chon {
-  border-color: #0f172a;
-  background-color: #0f172a;
+.slot-time {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.slot-price {
+  font-size: 13px;
+  color: #0284c7;
+  font-weight: 600;
+}
+
+/* Khung giờ đang chọn */
+.slot-selected {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-color: #0284c7;
   color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
 }
 
-.nut-khung-gio.da-dat {
+.slot-selected .slot-price {
+  color: #e0f2fe;
+}
+
+/* Khung giờ đã đặt */
+.slot-booked {
   background-color: #f8fafc;
-  border-color: #f1f5f9;
-  color: #cbd5e1;
+  border-color: #e2e8f0;
+  color: #94a3b8;
   cursor: not-allowed;
+  box-shadow: none;
+}
+
+.slot-booked .slot-time {
   text-decoration: line-through;
 }
 
-.chu-gio {
-  font-weight: 600;
-  font-size: 14px;
-  display: block;
+.slot-booked .slot-price {
+  color: #94a3b8;
+  font-weight: 500;
 }
 
-.chu-gia {
-  font-size: 12px;
-  margin-top: 4px;
-  display: block;
-  color: #64748b;
-}
-
-.nut-khung-gio.dang-chon .chu-gia {
-  color: #cbd5e1;
+@media (max-width: 600px) {
+  .time-slot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
