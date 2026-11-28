@@ -1,0 +1,131 @@
+/* ============================================================
+   Bảng màu dùng chung cho cả dự án (tông xanh – trắng).
+   Các bạn trong nhóm dùng bằng var(...), ví dụ: color: var(--green-700);
+   ============================================================ */
+:root {
+  --green-900: #1f4d3a; /* xanh rừng: nút chính, thanh tiêu đề */
+  --green-700: #2f6b43; /* xanh đậm: chữ nhấn, liên kết */
+  --green-500: #4f8f5a; /* xanh lá: viền focus, biểu tượng */
+  --green-300: #8dbf8a; /* xanh nhạt */
+  --green-200: #b9dab2; /* xanh rất nhạt */
+  --green-100: #eaf4e6; /* nền hover, nền nhấn nhẹ */
+  --green-50: #f5faf3; /* nền trang */
+  --white: #ffffff;
+  --text: #22332a;
+  --text-muted: #5d7266;
+  --border: #c5d6c3;
+  --danger: #b3382c;
+}
+
+body {
+  font-family:
+    "Be Vietnam Pro",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  color: var(--text);
+  background: var(--green-50);
+}
+
+/* ---------- Khung trang tạm (PagePlaceholder trong App.tsx) ---------- */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  color: var(--white);
+  background: var(--green-900);
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.app-header__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.app-header__role {
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  color: var(--green-900);
+  background: var(--green-200);
+  border-radius: 999px;
+}
+
+.app-logout {
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--green-900);
+  background: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.app-logout:hover {
+  background: var(--green-100);
+}
+
+.app-logout:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.app-card {
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--green-500);
+  border-radius: 12px;
+}
+
+.app-card h1 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--green-900);
+}
+
+.app-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+  .app-header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .app-main {
+    padding: 20px 16px;
+  }
+}

@@ -1,0 +1,287 @@
+/* Phông chữ có hỗ trợ tiếng Việt đầy đủ. @import phải nằm đầu file. */
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap");
+
+/* ---------- Bảng màu & nền trang ---------- */
+.login-page {
+  --forest: #1f4d3a;
+  --moss-dark: #2f6b43;
+  --moss: #4f8f5a;
+  --fern: #8dbf8a;
+  --sage: #b9dab2;
+  --mist: #eaf4e6;
+  --ink: #22332a;
+  --muted: #5d7266;
+  --line: #c5d6c3;
+  --danger: #b3382c;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 16px 80px;
+  overflow: hidden;
+  font-family:
+    "Be Vietnam Pro",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  color: var(--ink);
+  /* Bầu trời: xanh ngọc nhạt chuyển sang xanh lá nhạt ở gần đồi */
+  background: linear-gradient(
+    180deg,
+    #cfe8e0 0%,
+    #e4f1de 55%,
+    var(--mist) 100%
+  );
+}
+
+.login-page *,
+.login-page *::before,
+.login-page *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Trang trí: mặt trời, lá rơi, đồi thông ---------- */
+.login-sun {
+  position: absolute;
+  top: 8%;
+  right: 12%;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #fbe9a6;
+  box-shadow:
+    0 0 0 18px rgba(251, 233, 166, 0.35),
+    0 0 0 40px rgba(251, 233, 166, 0.18);
+}
+
+.login-leaves {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.login-leaf {
+  position: absolute;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background: var(--fern);
+  border-radius: 0 100% 0 100%; /* hình chiếc lá */
+  opacity: 0.8;
+  animation-name: login-leaf-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.login-leaf:nth-child(even) {
+  background: var(--moss);
+}
+
+@keyframes login-leaf-fall {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(40px, 50vh, 0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(-10px, 110vh, 0) rotate(360deg);
+  }
+}
+
+.login-scenery {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 42vh;
+  min-height: 220px;
+  max-height: 360px;
+  pointer-events: none;
+}
+
+.scenery-hill--back {
+  fill: var(--sage);
+}
+.scenery-hill--mid {
+  fill: var(--fern);
+}
+.scenery-hill--front {
+  fill: var(--moss);
+}
+.scenery-pine--far {
+  fill: #6fa874;
+}
+.scenery-pine--near {
+  fill: var(--moss-dark);
+}
+
+/* ---------- Thẻ đăng nhập ---------- */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 28px 28px;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px -20px rgba(31, 77, 58, 0.35);
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.login-title {
+  margin: 20px 0 6px;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--forest);
+}
+
+.login-subtitle {
+  margin: 0 0 24px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---------- Form ---------- */
+.login-field {
+  margin-bottom: 16px;
+}
+
+.login-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 11px 14px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.login-field input:focus {
+  outline: none;
+  border-color: var(--moss);
+  box-shadow: 0 0 0 3px rgba(79, 143, 90, 0.25);
+}
+
+.login-field input:disabled {
+  background: #f3f6f2;
+  cursor: not-allowed;
+}
+
+.login-password {
+  position: relative;
+}
+
+/* chừa chỗ bên phải cho nút Hiện/Ẩn */
+.login-password input {
+  padding-right: 64px;
+}
+
+.login-password__toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--moss-dark);
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-password__toggle:focus-visible {
+  outline: 2px solid var(--moss);
+}
+
+.login-error {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--danger);
+  background: #fdecea;
+  border-radius: 8px;
+}
+
+.login-submit {
+  width: 100%;
+  padding: 12px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--forest);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.login-submit:hover:not(:disabled) {
+  background: #2a6349;
+}
+
+.login-submit:focus-visible {
+  outline: 3px solid rgba(79, 143, 90, 0.5);
+  outline-offset: 2px;
+}
+
+.login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---------- Màn hình nhỏ ---------- */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 24px 20px 22px;
+  }
+
+  .login-sun {
+    top: 5%;
+    right: 8%;
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Người dùng tắt hiệu ứng chuyển động trong hệ điều hành → bỏ lá rơi */
+@media (prefers-reduced-motion: reduce) {
+  .login-leaf {
+    animation: none;
+    display: none;
+  }
+}

@@ -1,0 +1,13 @@
+/* Phông chữ dùng chung, có hỗ trợ tiếng Việt đầy đủ. @import phải nằm đầu file. */
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap");
+
+/* Reset tối thiểu dùng chung cho cả dự án */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
