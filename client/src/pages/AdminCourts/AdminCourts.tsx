@@ -59,12 +59,31 @@ const AdminCourts: React.FC = () => {
     }
   };
 
-  return (
-    <div className="admin-courts-container">
-      <div className="admin-header">
-        <h2>Quản Lý Sân Bóng Đá</h2>
-        <button className="btn-add" onClick={handleOpenAdd}>
-          + Thêm Sân Mới
+return (
+    <div className="app-card">
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '20px',
+        }}
+      >
+        <h1 style={{ margin: 0 }}>Quản lý sân (Duy)</h1>
+        <button
+          type="button"
+          onClick={handleOpenAdd}
+          style={{
+            backgroundColor: '#1f4d3a',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '10px 16px',
+            fontWeight: 600,
+            cursor: 'pointer',
+          }}
+        >
+          + Thêm sân mới
         </button>
       </div>
 

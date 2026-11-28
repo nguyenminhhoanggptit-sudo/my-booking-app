@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import Login from "./pages/Login/Login";
+import AdminCourts from "./pages/AdminCourts/AdminCourts";
 import type { UserRole } from "./types/user.types";
 import "./App.css";
 
@@ -16,8 +18,13 @@ const ROLE_LABEL: Record<UserRole, string> = {
 };
 
 // Trang tạm để thử luồng đăng nhập/đăng xuất khi các trang thật chưa có.
-function PagePlaceholder({ title }: { title: string }) {
-  const { user, logout } = useAuth();
+function PagePlaceholder({
+  title,
+  children,
+}: {
+  title?: string;
+  children?: ReactNode;
+}) {  const { user, logout } = useAuth();
 
   return (
     <div className="app-shell">
@@ -46,14 +53,18 @@ function PagePlaceholder({ title }: { title: string }) {
         </div>
       </header>
 
-      <main className="app-main">
-        <section className="app-card">
-          <h1>{title}</h1>
-          <p>
-            Đăng nhập thành công với tài khoản “{user?.username}”. Trang này
-            đang được các thành viên khác phát triển.
-          </p>
-        </section>
+ <main className="app-main">
+        {children ? (
+          children
+        ) : (
+          <section className="app-card">
+            <h1>{title}</h1>
+            <p>
+              Đăng nhập thành công với tài khoản “{user?.username}”. Trang này
+              đang được các thành viên khác phát triển.
+            </p>
+          </section>
+        )}
       </main>
     </div>
   );
@@ -80,14 +91,17 @@ export default function App() {
             />
           </Route>
 
-          {/* Chỉ admin */}
+{/* Chỉ admin */}
           <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
             <Route
               path="/admin/courts"
-              element={<PagePlaceholder title="Quản lý sân (Duy)" />}
+              element={
+                <PagePlaceholder>
+                  <AdminCourts />
+                </PagePlaceholder>
+              }
             />
           </Route>
-
           {/* Mọi đường dẫn còn lại → /login. Nếu đã đăng nhập, trang Login sẽ tự chuyển đến trang mặc định theo vai trò.
               LƯU Ý: các đường dẫn mặc định đó (/booking, /admin/courts) bắt buộc phải có route ở trên,
               nếu không sẽ bị chuyển hướng lặp vô tận. */}
